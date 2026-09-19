@@ -32,3 +32,13 @@ output "application_url" {
   description = "HTTP URL of the application load balancer."
   value       = "http://${module.ecs_service.load_balancer_dns_name}"
 }
+
+output "task_network_mode" {
+  description = "How ECS tasks receive outbound network access."
+  value       = var.enable_nat_gateway ? "private-with-nat" : "public-ip"
+}
+
+output "nat_gateway_enabled" {
+  description = "Whether the environment creates a NAT gateway."
+  value       = module.network.nat_gateway_enabled
+}
