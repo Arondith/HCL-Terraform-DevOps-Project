@@ -13,9 +13,15 @@ variable "public_subnet_ids" {
   type        = list(string)
 }
 
-variable "private_subnet_ids" {
-  description = "Private subnet IDs for ECS tasks."
+variable "task_subnet_ids" {
+  description = "Subnet IDs where ECS tasks run."
   type        = list(string)
+}
+
+variable "assign_public_ip" {
+  description = "Whether ECS tasks receive public IP addresses."
+  type        = bool
+  default     = false
 }
 
 variable "container_image" {
