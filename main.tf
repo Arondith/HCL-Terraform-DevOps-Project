@@ -27,15 +27,15 @@ module "network" {
 module "ecs_service" {
   source = "./modules/ecs_service"
 
-  name                = local.name
-  vpc_id              = module.network.vpc_id
-  public_subnet_ids   = module.network.public_subnet_ids
-  task_subnet_ids     = local.task_subnet_ids
-  assign_public_ip    = !var.enable_nat_gateway
-  container_image     = var.container_image
-  desired_count       = var.desired_count
-  min_capacity        = var.min_capacity
-  max_capacity        = var.max_capacity
-  log_retention_days  = var.log_retention_days
-  tags                = local.common_tags
+  name               = local.name
+  vpc_id             = module.network.vpc_id
+  public_subnet_ids  = module.network.public_subnet_ids
+  task_subnet_ids    = local.task_subnet_ids
+  assign_public_ip   = !var.enable_nat_gateway
+  container_image    = var.container_image
+  desired_count      = var.desired_count
+  min_capacity       = var.min_capacity
+  max_capacity       = var.max_capacity
+  log_retention_days = var.log_retention_days
+  tags               = local.common_tags
 }
